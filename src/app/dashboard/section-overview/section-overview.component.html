@@ -1,0 +1,26 @@
+
+<div class="container">
+    <h1>Sections</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>{{title}}</th>
+                <th>mission</th>
+                <th>leader</th>
+            </tr>
+        </thead>
+        <tbody  *ngIf="sections.length">
+            <tr *ngFor="let section of sections">
+                <td>{{section.title}}</td>
+                <td>{{section.mission}}</td>
+                <td>{{section.leader}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" *ngIf="!sections.length">No sections added yet</td>
+                <td colspan="3" *ngIf="sections.length">*subject for change</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
