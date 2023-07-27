@@ -1,29 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { section } from 'src/app/interfaces/types';
+import { SectionsService } from 'src/app/services/sections-services/sections.service';
 
 @Component({
   selector: 'app-section-overview',
   templateUrl: './section-overview.component.html',
   styleUrls: ['./section-overview.component.scss']
 })
-export class SectionOverviewComponent {
+export class SectionOverviewComponent implements OnInit, OnDestroy {
   title:string= "Sections";
+  sections: section[] = []
+  errorMessage:string = 'No Error';
+  sub!: Subscription;
+  constructor(private sectionsService:SectionsService) { }
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 
-  sections: section[] =[
-    {
-      title:"Support services",
-      mission: "Support club events",
-      leader: "Faris Alsaif"
-    },
-    {
-      title:"Aldawa",
-      mission: "Dawa for Ketab and Sunnah",
-      leader: "Jehad Malaka"
-    },
-    {
-      title:"Media",
-      mission: "document and publish club events",
-      leader: "Rayan"
-    },
-  ]
+  ngOnInit(): void {
+    this.sub = this.sectionsService.getSections().subscribe({
+      next:sections=>this.sections = sections,
+      error:err=>this.errorMessage = err
+    });
+    console.log(this.errorMessage);
+  }
 }
