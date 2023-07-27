@@ -22,9 +22,10 @@ export class AllMembersComponent implements OnInit{
   set roleFilter(value:string){
 
   }
-  get membersFilter():string{
-    return this._membersFilter;
-  }
+
+  // get membersFilter():string{
+  //   return this._membersFilter;
+  // }
   set membersFilter(value:string){
     this.filteredMembers = this.filterMembers(value);  
   }
