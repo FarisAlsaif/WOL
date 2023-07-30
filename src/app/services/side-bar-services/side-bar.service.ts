@@ -9,23 +9,23 @@ export class SideBarService {
 
   getPages():any{
     return [{
-      title:"Dashboard",
+      title:"dashboard",
       path: "",
       icon:"fa-solid fa-house"
   
     },
     {
-      title:"Section1",
+      title:"sections",
       path: "",
       icon:"fa-solid fa-users"
     },
     {
-      title:"Section2",
+      title:"members",
       path: "",
       icon:""
     },
     {
-      title:"Section3",
+      title:"section3",
       path: "",
       icon:""
     },

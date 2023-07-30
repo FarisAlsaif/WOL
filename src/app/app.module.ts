@@ -10,6 +10,7 @@ import { SectionOverviewComponent } from './dashboard/section-overview/section-o
 import { MemberComponent } from './members/member/member.component';
 import { AllMembersComponent } from './members/all-members/all-members.component';
 import { RouterModule } from '@angular/router';
+import { FLUCPipe } from './pips/fluc.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RouterModule } from '@angular/router';
     SectionOverviewComponent,
     MemberComponent,
     AllMembersComponent,
+    FLUCPipe,
   ],
   imports: [
     BrowserModule,

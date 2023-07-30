@@ -41,7 +41,121 @@
             </thead>
             <tbody>
                 <tr *ngFor="let member of filteredMembers">
-                    <td>{{member.name}}</td>
+                    <td><a
+                        routerLink="/members/{{member.id}}"
+                        >{{member.name}}</a></td>
+                    <td>{{member.section}}</td>
+                    <td>{{member.role}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Table Footer</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="table-container">
+        <!-- Input field for filtering -->
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <!-- Text filter input 1 -->
+                    <div class="form-group">
+                        <label for="textFilter1">Filter by Name</label>
+                        <input  type="text" class="form-control" id="textFilter1" placeholder="Enter text">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- Text filter input 2 -->
+                    <div class="form-group">
+                        <label for="textFilter2">Filter by Role</label>
+                        <input [(ngModel)]="roleFilter" type="text" class="form-control" id="textFilter2" placeholder="Enter text">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- Dropdown filter -->
+                    <div class="form-group">
+                        <label for="dropdownFilter">Filter by Section</label>
+                        <select class="form-control" id="dropdownFilter">
+                            <option value="">All</option>
+                            <option value="section">section</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        <input [(ngModel)]="membersFilter" type="text" class="form-control" id="filterInput" placeholder="Filter by keyword...">
+
+        <!-- Table -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Section</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let member of filteredMembers">
+                    <td><a
+                        routerLink="/members/{{member.id}}"
+                        >{{member.name}}</a></td>
+                    <td>{{member.section}}</td>
+                    <td>{{member.role}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Table Footer</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="table-container">
+        <!-- Input field for filtering -->
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <!-- Text filter input 1 -->
+                    <div class="form-group">
+                        <label for="textFilter1">Filter by Name</label>
+                        <input  type="text" class="form-control" id="textFilter1" placeholder="Enter text">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- Text filter input 2 -->
+                    <div class="form-group">
+                        <label for="textFilter2">Filter by Role</label>
+                        <input [(ngModel)]="roleFilter" type="text" class="form-control" id="textFilter2" placeholder="Enter text">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- Dropdown filter -->
+                    <div class="form-group">
+                        <label for="dropdownFilter">Filter by Section</label>
+                        <select class="form-control" id="dropdownFilter">
+                            <option value="">All</option>
+                            <option value="section">section</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        <input [(ngModel)]="membersFilter" type="text" class="form-control" id="filterInput" placeholder="Filter by keyword...">
+
+        <!-- Table -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Section</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let member of filteredMembers">
+                    <td><a
+                        routerLink="/members/{{member.id}}"
+                        >{{member.name}}</a></td>
                     <td>{{member.section}}</td>
                     <td>{{member.role}}</td>
                 </tr>

@@ -1,2 +1,14 @@
+// Global styles if needed
+
+.main{
+    display: flex;   
+
+   >*{
+       padding:10px;
+    }
+    >.router-outlet{
+        flex: 1;
+    }
+}
 
 

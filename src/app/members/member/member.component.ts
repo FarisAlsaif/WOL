@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { member } from 'src/app/interfaces/types';
 import { MembersService } from 'src/app/services/members-services/members.service';
@@ -15,10 +16,15 @@ export class MemberComponent {
   errorMessage:string = 'No Error';
   sub!: Subscription;
 
-  constructor(private membersService:MembersService) { }
+  constructor(
+    private membersService:MembersService,
+    private route:ActivatedRoute,
+    ) { }
 
   ngOnInit(): void {
-    this.sub = this.membersService.getMember(1).subscribe({
+    let id:string  = this.route.snapshot.paramMap.get('id') !== null ? this.route.snapshot.paramMap.get('id')! : '0';
+
+    this.sub = this.membersService.getMember(parseInt(id)).subscribe({
       next:member=>this.member = member,
       error:err=>this.errorMessage = err
     });
