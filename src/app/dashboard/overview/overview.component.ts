@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { HeaderService } from 'src/app/services/header-services/header.service';
+import { HeaderService } from 'src/app/shared/services/header-services/header.service';
 
 @Component({
   selector: 'app-overview',

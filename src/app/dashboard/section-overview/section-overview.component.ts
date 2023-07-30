@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { section } from 'src/app/interfaces/types';
-import { HeaderService } from 'src/app/services/header-services/header.service';
-import { SectionsService } from 'src/app/services/sections-services/sections.service';
+import { HeaderService } from 'src/app/shared/services/header-services/header.service';
+import { SectionsService } from 'src/app/shared/services/sections-services/sections.service';
 
 @Component({
   selector: 'app-section-overview',

@@ -1,4 +1,8 @@
 // Define common styles for links
+@import 'src/styles.scss'; 
+
+.com{
+}
 a {
     display: block;
     text-decoration: none;
@@ -9,13 +13,15 @@ a {
   .sidebar {
     height: 100vh;
     width: 100%;
-    background-color: #f8f9fa;
+    background-color:$color1;
     padding: 0;
+    border:solid 1px #e9ecef;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
   
     ul {
       list-style: none;
-      padding: 0 0 0 0 ;
-      margin: 0 0 0 0;
+      padding: 0 ;
+      margin: 0;
       height: 100%;
       width: 100%;
 
@@ -24,14 +30,17 @@ a {
         width: 100%;
   
         &:hover {
-          background-color: #e9ecef;
+          background-color: $color0;
+          border-radius: 0 25px 25px 0;
         }
+
   
         // Apply the link styles to the links within the sidebar list items
         a {
           height: 100%;
           width: 100%;
           padding: 1rem 2rem 1rem 0.5rem;
+          
         }
       }
     }

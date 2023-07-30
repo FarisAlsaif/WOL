@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { HeaderService, header } from 'src/app/services/header-services/header.service';
+import { HeaderService, header } from 'src/app/shared/services/header-services/header.service';
 import { Subscription } from 'rxjs';
 
 @Component({

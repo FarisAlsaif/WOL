@@ -2,14 +2,22 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.min.css";
 
+$color0: #EEEEEE;
+$color1:white;
+$color2: #FFF1DC;
+$color3: #E8D5C4;
+$color4: #3A98B9;
+
+
 
 html,body{
     height: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
-}
-body {
+    color:$color4;
     overflow-x: hidden; /* Hide horizontal scrollbar */
-  
+    background-color: $color0;
+
 }
+

@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { member } from 'src/app/interfaces/types';
-import { HeaderService } from 'src/app/services/header-services/header.service';
-import { MembersService } from 'src/app/services/members-services/members.service';
+import { HeaderService } from 'src/app/shared/services/header-services/header.service';
+import { MembersService } from 'src/app/shared/services/members-services/members.service';
 
 @Component({
   selector: 'app-all-members',
@@ -12,7 +12,7 @@ import { MembersService } from 'src/app/services/members-services/members.servic
 export class AllMembersComponent implements OnInit, OnDestroy{
 
   title:string = 'All Members';
-  private _membersFilter:string = '';
+  private _membersFilter:string = "";
   private _roleFilter:string = '';
   errorMessage:string = 'No Error'; 
   sub!: Subscription;
