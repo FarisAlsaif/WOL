@@ -11,6 +11,7 @@ import { MemberComponent } from './members/member/member.component';
 import { AllMembersComponent } from './members/all-members/all-members.component';
 import { RouterModule } from '@angular/router';
 import { FLUCPipe } from './pips/fluc.pipe';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FLUCPipe } from './pips/fluc.pipe';
     MemberComponent,
     AllMembersComponent,
     FLUCPipe,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,16 @@
 // Global styles if needed
 
-.main{
+.all{
     display: flex;   
+    height: 100vh;
 
    >*{
-       padding:10px;
+        padding: 0;
     }
-    >.router-outlet{
+    >.main{
         flex: 1;
+        overflow-x: hidden; /* Hide horizontal scrollbar */
+        overflow-y: scroll; /* Add vertical scrollbar */
     }
 }
 

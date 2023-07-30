@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { section } from 'src/app/interfaces/types';
+import { HeaderService } from 'src/app/services/header-services/header.service';
 import { SectionsService } from 'src/app/services/sections-services/sections.service';
 
 @Component({
@@ -13,16 +14,26 @@ export class SectionOverviewComponent implements OnInit, OnDestroy {
   sections: section[] = []
   errorMessage:string = 'No Error';
   sub!: Subscription;
-  constructor(private sectionsService:SectionsService) { }
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
-  }
+
+  constructor(private sectionsService:SectionsService,
+    private headerService:HeaderService,
+    ) { }
 
   ngOnInit(): void {
     this.sub = this.sectionsService.getSections().subscribe({
       next:sections=>this.sections = sections,
       error:err=>this.errorMessage = err
     });
-    console.log(this.errorMessage);
+    this.headerService.setHeader({
+      title: this.title,
+      back: true,
+    });
+
   }
+  
+  ngOnDestroy(): void {
+    this.headerService.resetHeader();
+    this.sub.unsubscribe();
+  }
+
 }

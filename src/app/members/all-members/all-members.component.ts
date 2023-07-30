@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { member } from 'src/app/interfaces/types';
+import { HeaderService } from 'src/app/services/header-services/header.service';
 import { MembersService } from 'src/app/services/members-services/members.service';
 
 @Component({
@@ -10,13 +11,15 @@ import { MembersService } from 'src/app/services/members-services/members.servic
 })
 export class AllMembersComponent implements OnInit, OnDestroy{
 
-  
+  title:string = 'All Members';
   private _membersFilter:string = '';
   private _roleFilter:string = '';
   errorMessage:string = 'No Error'; 
   sub!: Subscription;
 
-  constructor(private membersService:MembersService){}
+  constructor(private membersService:MembersService,
+    private headerService:HeaderService,
+    ){}
 
   get roleFilter():string{
     return this._roleFilter;
@@ -29,7 +32,6 @@ export class AllMembersComponent implements OnInit, OnDestroy{
   }
   filteredMembers:member[]= [];
 
-
   members:member[] = [];
 
   ngOnInit(){
@@ -39,21 +41,20 @@ export class AllMembersComponent implements OnInit, OnDestroy{
       error:err=>this.errorMessage = err
 
     });
-    console.log(this.errorMessage);
-    this._membersFilter = "";
+    this.headerService.setHeader({
+      title: this.title,
+      back: true,
+    });
   }
   ngOnDestroy(): void {
+    this.headerService.resetHeader();
     this.sub.unsubscribe();
   }
-
-
    filterMembers(filterBy: string): member[] {
     filterBy = filterBy.toLocaleLowerCase(); 
     return this.members.filter((member:member)=>
       member.name.toLocaleLowerCase().includes(filterBy)
     ); 
   }
-  
-
 }
 

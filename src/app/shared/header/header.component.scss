@@ -1,0 +1,27 @@
+.container{
+    margin: 0 0 1rem 0;
+    padding-left: 0;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border:solid 1px #e9ecef;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    > * { /* Corrected nesting syntax */
+        padding: .5rem;
+      }
+    
+}
+.butt{
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    padding: .5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+}
