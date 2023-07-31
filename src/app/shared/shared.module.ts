@@ -43,7 +43,6 @@ export class SharedModule {
 
   constructor(){
     FirebaseTSApp.init(environment.firebaseConfig)
-    
   }
 
 }
