@@ -6,11 +6,10 @@ import { AppComponent } from './app.component';
 import { RoutesComponent } from './routes/routes.component';
 import { OverviewComponent } from './dashboard/overview/overview.component';
 import { SectionOverviewComponent } from './dashboard/section-overview/section-overview.component';
-import { MemberComponent } from './members/member/member.component';
-import { AllMembersComponent } from './members/all-members/all-members.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { MembersModule } from './members/members.module';
+import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,4 +40,19 @@ import { MembersModule } from './members/members.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  cpnstructor(){
+ 
+    FirebaseTSApp.init(
+      {
+        apiKey: "AIzaSyBEn3JaB_cGJTiIeEv9HDJzuxggb9Q-5aQ",
+        authDomain: "wol1-deee4.firebaseapp.com",
+        projectId: "wol1-deee4",
+        storageBucket: "wol1-deee4.appspot.com",
+        messagingSenderId: "640323914957",
+        appId: "1:640323914957:web:18fbb3920beefe98b4ed84"
+      }
+    )
+  }
+
+}

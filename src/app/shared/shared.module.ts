@@ -6,8 +6,9 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FLUCPipe } from './pips/fluc.pipe';
-
-
+import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
+import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import { environment } from 'src/enviroments/environment';
 
 @NgModule({
   declarations: [
@@ -31,8 +32,18 @@ import { FLUCPipe } from './pips/fluc.pipe';
     NotFoundPageComponent,
     FLUCPipe,
     NotFoundPageComponent,
+  ],
+  providers:[
+    FirebaseTSFirestore,
   ]
 
 
 })
-export class SharedModule { }
+export class SharedModule { 
+
+  constructor(){
+    FirebaseTSApp.init(environment.firebaseConfig)
+    
+  }
+
+}
