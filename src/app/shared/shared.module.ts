@@ -9,7 +9,6 @@ import { FLUCPipe } from './pips/fluc.pipe';
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { environment } from 'src/enviroments/environment';
-
 @NgModule({
   declarations: [
     SideNavComponent,

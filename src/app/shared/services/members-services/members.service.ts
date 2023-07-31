@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { member } from '../../../interfaces/types';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, catchError, map, tap, throwError ,Observer} from 'rxjs';
+import { Observable, throwError ,Observer} from 'rxjs';
 import { FirebaseTSFirestore} from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 
 
@@ -35,10 +35,7 @@ export class MembersService {
         where: []
       });
     });
-    // return this.httpClient.get<member[]>(this.membersUrl).pipe(
-    //   tap(data=>console.log('All: '+ JSON.stringify(data)),
-    //   catchError(this.handleError)
-    //   ));
+
   }
 
   getMember(id: number): Observable<member> {
