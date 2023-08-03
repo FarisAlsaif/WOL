@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { member } from '../../../interfaces/types';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError ,Observer} from 'rxjs';
+import { Observable, throwError ,Observer, tap, catchError} from 'rxjs';
 import { FirebaseTSFirestore} from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 
 
@@ -13,46 +13,26 @@ export class MembersService {
 
   constructor(private httpClient:HttpClient,
     private firebaseTSFirestore:FirebaseTSFirestore,
+    private http:HttpClient
     ) {}
 
-  private membersUrl = "api/members.json";
+  private url = "http://localhost:3000"
+
 
 
   getMembers():Observable<member[]>{
-
-    return new Observable<member[]>((observer: Observer<member[]>) => {
-      this.firebaseTSFirestore.getCollection({
-        path: ["members"],
-        onComplete: (result) => {
-          const members: member[] = <member[]>result.docs.map((doc) => doc.data());
-          observer.next(members); // Emit the members array
-          observer.complete(); // Complete the observable
-        },
-        onFail: (error) => {
-          console.log(error);
-          observer.error(error); // Emit the error
-        },
-        where: []
-      });
-    });
-
+    return this.http.get<member[]>(`${this.url}/members`).pipe(
+      tap(data => console.log('All: ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
   }
 
   getMember(id: number): Observable<member> {
-    return new Observable<member>((observer: Observer<member>) => {
-      this.firebaseTSFirestore.getDocument({
-        path: ["members", "1"],
-        onComplete: (result) => {
-          const member: member = <member>result.data();
-          observer.next(member); // Emit the member object
-          observer.complete(); // Complete the observable
-        },
-        onFail: (error) => {
-          console.log(error);
-          observer.error(error); // Emit the error
-        },
-      });
-    });
+    return this.http.get<member>(`${this.url}/members/${id}`).pipe(
+      tap(data => console.log('All: ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+
   }
 
   handleError(err:HttpErrorResponse){

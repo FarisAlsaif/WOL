@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent   {
 
   @Input() title: string='false';
   @Input() back: boolean=false;
@@ -21,11 +21,6 @@ export class HeaderComponent implements OnInit {
       this.back = headerDetails.back || false;
 
     });
-  }
-
-  
-
-  ngOnInit(): void {
   }
   goBack(){
     this.location.back()
